@@ -1,0 +1,51 @@
+package blockchain.test;
+
+
+import java.security.PrivateKey;
+import java.security.PublicKey;
+
+import blockchain.Block;
+import blockchain.BlockChain;
+import blockchain.Transaction;
+import blockchain.Wallet;
+import blockchain.util.Base64Conversion;
+import blockchain.util.CommonSet;
+import exe.util.Path;
+
+public class Test2 {
+
+	public static void main(String[] args) throws Exception {
+		String str = Base64Conversion.importChain("FTBC", Path.SERVER_CHAIN_PATH);
+		BlockChain blockChain = (BlockChain) Base64Conversion.decodeBase64(str);
+		blockChain.syncUTXOs();
+		System.out.println("블체 사이즈 : "+blockChain.blockChain.size());
+		blockChain.isChainValid();
+//		CommonSet commonSet = CommonSet.getInstance();
+//		Wallet w = commonSet.getManagerWallet();
+//		System.out.println(w.getBalance(blockChain));
+//		PublicKey p = (PublicKey) Base64Conversion.decodeBase64("rO0ABXNyADxvcmcuYm91bmN5Y2FzdGxlLmpjYWpjZS5wcm92aWRlci5hc3ltbWV0cmljLmVjLkJDRUNQdWJsaWNLZXkhn3qKo+pIJAMAAloAD3dpdGhDb21wcmVzc2lvbkwACWFsZ29yaXRobXQAEkxqYXZhL2xhbmcvU3RyaW5nO3hwAHQABUVDRFNBdXIAAltCrPMX+AYIVOACAAB4cAAAAEswSTATBgcqhkjOPQIBBggqhkjOPQMBAQMyAASFc4+f/qS4dSs+dj3n9Nelc9yEyRNklRSbNTcSVbXkCqJ5wVma8puOFNN18DFkVZ94");
+//		PrivateKey r = (PrivateKey) Base64Conversion.decodeBase64("rO0ABXNyAD1vcmcuYm91bmN5Y2FzdGxlLmpjYWpjZS5wcm92aWRlci5hc3ltbWV0cmljLmVjLkJDRUNQcml2YXRlS2V5Dc1c3SkJztQDAAJaAA93aXRoQ29tcHJlc3Npb25MAAlhbGdvcml0aG10ABJMamF2YS9sYW5nL1N0cmluZzt4cAB0AAVFQ0RTQXVyAAJbQqzzF/gGCFTgAgAAeHAAAAB9MHsCAQAwEwYHKoZIzj0CAQYIKoZIzj0DAQEEYTBfAgEBBBiIGud5ciZ0Zrkh9wpcPOdSndqgs9rO5xWgCgYIKoZIzj0DAQGhNAMyAASFc4+f/qS4dSs+dj3n9Nelc9yEyRNklRSbNTcSVbXkCqJ5wVma8puOFNN18DFkVZ94");
+//		Wallet parkWallet = new Wallet();
+//		parkWallet.setPrivateKey(r);
+//		parkWallet.setPublicKey(p);
+//		System.out.println(parkWallet.getBalance(blockChain));
+//		for(int i=0;i<blockChain.UTXOs.size();i++) {
+//			Object keys[] = blockChain.UTXOs.keySet().toArray();
+//			for(int j=0;j<blockChain.UTXOs.size();j++) {
+//				System.out.println(i+"번째"+j+"번째 UTXOs key 값 : "+keys[j]);
+//				System.out.println(i+"번째"+j+"번째 UTXIs id 값 : "+blockChain.UTXOs.get(keys[j]).id);
+//			}
+//		}
+//		for(int i=1;i<blockChain.blockChain.size();i++) {
+//			Block block = blockChain.blockChain.get(i);
+//			for(int j=0;j<block.transactions.size();j++) {
+//				Transaction t = block.transactions.get(j);
+//				for(int n=0;n<t.inputs.size();n++) {
+//					System.out.println(i+"번째 블록의 "+j+"번째 트랜잭션의 "+n+"번째 인풋 아이디 : "+t.inputs.get(n).outputId);
+//				}
+//			}
+//		}
+		
+		
+	}
+}
