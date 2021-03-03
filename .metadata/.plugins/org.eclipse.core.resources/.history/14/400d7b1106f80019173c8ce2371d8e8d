@@ -1,0 +1,23 @@
+package blockchain.test;
+
+import blockchain.Block;
+import blockchain.BlockChain;
+import blockchain.Transaction;
+import blockchain.util.Base64Conversion;
+import exe.util.Path;
+
+public class Test2 {
+
+	public static void main(String[] args) throws Exception {
+		String str = Base64Conversion.importChain("FTBC", Path.SERVER_CHAIN_PATH);
+		BlockChain blockChain = (BlockChain) Base64Conversion.decodeBase64(str);
+//		blockChain.syncUTXOs();
+		System.out.println("블체 사이즈 : "+blockChain.blockChain.size());
+		blockChain.isChainValid();
+		Block b = blockChain.blockChain.get(1);
+		for(int i=0;i<b.transactions.size();i++) {
+			Transaction t = b.transactions.get(i);
+			System.out.println(t+"번 째 txId : "t.txId);
+		}
+	}
+}

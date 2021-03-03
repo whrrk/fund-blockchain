@@ -1,0 +1,49 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>FTBC</title>
+<!--=============================================================================================
+	내 가 만든 프로젝트 
+	날짜:2019-09-16
+================================================================================================  -->
+<%@ include file="../FTBC_Common/FTBC_Common.jsp"%>
+<link rel="stylesheet" type="text/css" href="myProject.css?minj33u">
+<!-- ================= [고명석 2019-10-14 중간합산본 이후 추가] ========================= -->
+<script type="text/javascript">
+	function myProject(){
+		$.ajax({
+			method:'get',
+			url:'/Project/getMyProjects?mem_email=<%=session.getAttribute("mem_email")%>',
+			success:function(data){
+				$("#myProject_List").html(data);
+			} 
+				
+		});
+	}
+	$(document).ready(function() {
+		myProject();
+	});
+</script>
+<!-- ================= [고명석 2019-10-14 중간합산본 이후 추가] ========================= -->
+</head>
+<body>
+<!-- 내가 만든 프로젝트 페이지는 상단바 바뀌어야함.  -->
+<%@ include file="../FTBC_Common/FTBC_Top.jsp"%>
+<div class="container-fluid">
+	<div class="row" id="myProject_top">
+		<div class="row" id="myProject_pfd">
+			<img src="<%=session.getAttribute("mem_pfimg").toString() %>" id="myProject_pfimg" width=150px>
+		</div>
+	</div>
+	
+	<div class="row"  id="myProject_content">
+	<div id="myProject_List">
+
+	</div>
+	</div>
+</div>
+</body>
+</html>

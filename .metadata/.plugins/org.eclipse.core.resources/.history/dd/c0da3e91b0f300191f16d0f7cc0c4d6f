@@ -1,0 +1,48 @@
+package blockchain.test;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import blockchain.util.StringUtil;
+
+public class Test2 {
+
+	public static void main(String[] args) {
+		String strs[] =
+			{
+					"고명석!",
+					"곽도훈!",
+					"김민지!",
+					"김시성!",
+					"김용현!",
+					"김정은!",
+					"김현태!",
+					"김희원!",
+					"박상범!",
+					"서수근!",
+					"손준호!",
+					"유승기!",
+					"유종남!",
+					"이건우!",
+					"이경애!",
+					"이광현!",
+					"이상만!",
+					"이하나!",
+					"정민희!",
+					"정원형!",
+					"정재현!",
+					"정지우!",
+					"정희연!",
+					"조웅기!",
+					"최종현!",
+					"현태호!",
+					"황현형!"
+			};
+		List<String> shaList = new ArrayList<>();
+		for(String str : strs) {
+			String shaStr = StringUtil.applySha256(str);
+			shaList.add(shaStr);
+		}
+		System.out.println(shaStr);
+	}
+}
