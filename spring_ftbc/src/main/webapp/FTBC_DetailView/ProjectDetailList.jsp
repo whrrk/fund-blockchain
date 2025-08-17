@@ -464,7 +464,6 @@
 			</div>
 		</div>
 		<!-- #DB -->
-
 		<div id="bottom_rewardsLabel">
 			선택할 수 있는
 			<%=gift_code.size()%>개의 선물이 있습니다.
@@ -597,4 +596,5 @@
 			%>
 		</div>
 		<div class="col-lg-2"></div>
+
 	</div>
